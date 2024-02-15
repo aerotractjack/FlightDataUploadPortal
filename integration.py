@@ -54,3 +54,21 @@ def client_id_from_project_id(project_id):
         return req.json()[0]["CLIENT_ID"]
     except:
         return  []
+    
+def update_flight_info(client_id, project_id, stand_id, col_val_pairs):
+    try:
+        url = f"{api_url}/api/set_flight_data_column_true"
+        for column, value in col_val_pairs:
+            body = {
+                "table": "flights",
+                "column": column,
+                "client_id": client_id,
+                "project_id": project_id,
+                "stand_id": stand_id,
+                "val": value
+            }
+            req = requests.post(url, json=body)
+            if not req.status_code == 200:
+                raise ValueError(req.text)
+    except:
+        return  []
