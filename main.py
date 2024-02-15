@@ -62,7 +62,7 @@ class SDSubmissionPage(QWizardPage):
         self.dropdown = QComboBox(self)
         self.pilot_label = QLabel("Select pilot", self)
         layout.addWidget(self.pilot_label)
-        options_list = ["Matthew", "Tristan", "Jake", "James"]  # Replace this with your actual list of options
+        options_list = ["select a pilot", "Matthew", "Tristan", "Jake", "James"]  
         self.dropdown.addItems(options_list)
         layout.addWidget(self.dropdown)
         self.setLayout(layout)
@@ -183,8 +183,8 @@ class App(QWizard):
                 entry["CLIENT_ID"], entry["PROJECT_ID"], entry["STAND_ID"],
                 [["SD_CARD", sd_name], ["PILOT", pilot]]
             )
-            # with lock:
-            #     uploadQ.put(entry_json)
+            with lock:
+                uploadQ.put(entry_json)
             print(entry_json)
             dup_logger.info("Submitting file upload\n" + entry_json)
             sys.stdout.flush()
