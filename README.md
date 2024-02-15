@@ -1,3 +1,3 @@
 # FlightDataUploadPortal
 
-PyQT Dashboard to support uploading source images/lidar/readings from flights
+PyQT Dashboard to help pilots upload source images/lidar/readings from flights
