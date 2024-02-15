@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=SD Upload Portal
+Icon=/home/aerotract/software/FlightDataUploadPortal/desktop/FlightDataUploadPortal.icon
+Exec=/usr/bin/python3 /home/aerotract/software/FlightDataUploadPortal/main.py
+Terminal=False
