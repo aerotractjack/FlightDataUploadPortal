@@ -98,10 +98,9 @@ class SDSubmissionPage(QWizardPage):
             return
         sd_pattern = r"SD-\d{4}"
         if not re.search(sd_pattern, file_path):
-            QMessageBox.critical(self, "Invalid Path", "The selected path does not follow the 'SD-1234/DCIM' convention.")
-            return
+            QMessageBox.warning(self, "Incorrect SD Format", "The selected path does not follow the 'SD-1234/DCIM' convention.")
         if not file_path.endswith("DCIM"):
-            file_path = file_path.rstrip("/") + "/DCIM"  # Ensure there's no trailing slash before appending "DCIM"
+            file_path = file_path.rstrip("/") + "/DCIM"  
         self.filename_label.setText(file_path)
         files = self.parse_sd_contents(file_path).fillna("")
         if 'SUB_SOURCE' not in files:
