@@ -181,7 +181,7 @@ class App(QWizard):
             entry_json = json.dumps(entry, indent=4)
             integration.update_flight_info(
                 entry["CLIENT_ID"], entry["PROJECT_ID"], entry["STAND_ID"],
-                [["SD_CARD", sd_name], ["PILOT", pilot]]
+                [["SD_CARD", sd_name], ["PILOT", pilot], ["FLIGHT_COMPLETE", 1]]
             )
             with lock:
                 uploadQ.put(entry_json)
